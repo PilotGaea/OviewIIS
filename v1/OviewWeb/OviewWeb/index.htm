@@ -1,0 +1,19 @@
+﻿<!DOCTYPE html>
+<head>
+<script src="PGWeb3D.min.js"></script>
+</head>
+<body>
+<div id="terrainView" style="width:100%;height:100%;position:absolute;top:0;left:0;"></div>
+<script>
+var oview = new ov.TerrainView('terrainView');
+
+function onTerrainOK()
+{
+oview.setBaseLayer("OSM","IMAGE",false,"{URL}");
+}
+
+var setting = {};
+setting.urlTemplate = "Oview.ashx?{URL}";
+oview.openTerrain("127.0.0.1", 8080, "terrain", onTerrainOK, null, setting);
+</script>
+</body>
